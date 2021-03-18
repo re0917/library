@@ -1,0 +1,34 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Author: {{ author.first_name }},{{ author.last_name }}</h1>
+  {{ author.date_of_birth }}-{{ author.date_of_death }}
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Books</h4>
+
+
+    
+    <p>{{ author.first_name }}</p>
+    <p>{{ objects.title }}</p>
+    <p><strong>Summary:</strong> {{ book.summary }}</p>
+    
+    {% if object_list %}
+    <ul>
+
+      {% for book in object_list %}
+      <li>
+        {{ book.title }} 
+        ({{book.summary}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no books in the library.</p>
+    {% endif %} 
+  </div>
+  <p>{{ book.title }}</p>
+{% endblock %}
+
+
